@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "MGDOOMS_LIBRARY_b9b39d34"
+    },
+    {
+      "name": "Run with argument",
+      "type": "python",
+      "request": "launch",
+      "program": "first_py_program",
+      "console": "integratedTerminal",
+      "args": ["Kale"]
+    }
+  ]
+}

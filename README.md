@@ -26,7 +26,7 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 #### Classes and Objects: 
 Create classes for Books, Users, and Transactions.
-#### Inheritance**:
+#### Inheritance:
 You can have different types of users (e.g., Students, Faculty).
 #### Collections: 
 Use lists or maps to store books and users.
