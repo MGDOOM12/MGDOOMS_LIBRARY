@@ -4,20 +4,25 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
         
         // Library object that we do not want any changes being made.
         Library library = new Library("MGDOOM'S LIBRARY", "MGDOOM", 2025, false);
-
+        Member member;
         // System.out.println(library);
         boolean isMember = false;
         String answer = "";
 
         isMember = checkIsMember( library, answer, isMember);
 
-        System.out.println(isMember);
+        // System.out.println(isMember);
 
-        scanner.close();
+        if(!isMember){
+            // Create a method to create a user;
+        }else{
+            // Create a method to find a user;
+        }
+
+
     }
 
 
@@ -44,6 +49,31 @@ public class App {
         return  isMember;
     }
 
+    
 
+    public static Member createMember(Library library){
+        Scanner scanner = new Scanner(System.in);
+        String answer = "";
+        String firstName ="";
+        String lastName="";
+        String dobString="";
+        String email="";
 
+        do{
+            System.out.println("It look like you are not a member. Would you like to join: Yes or No:");
+            answer = scanner.nextLine().toLowerCase();
+
+            if(answer.equals("yes")){
+                System.out.printf("Great! We are excited for you to join %s \n.", library.getName());
+                System.out.println("We have a few questions we will need you to answer to create you an account");
+                System.out.println("What is your first name?");
+
+            }
+
+        }while(!answer.equals("yes") && !answer.equals("no"));
+
+        Member newMember = new Member(firstName, lastName, dobString, email);
+        scanner.close();
+        return newMember;
+    }
 }
