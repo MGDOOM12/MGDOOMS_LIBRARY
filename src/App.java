@@ -13,6 +13,18 @@ public class App {
         boolean isMember = false;
         String answer = "";
 
+        isMember = checkIsMember( library, answer, isMember);
+
+        System.out.println(isMember);
+
+        scanner.close();
+    }
+
+
+
+    public static boolean checkIsMember(Library library, String answer, boolean isMember){
+        Scanner scanner = new Scanner(System.in);
+
         do {
             System.out.println("Welcome to " + library.getName() + " my name is " + library.getLibrarian() + ".");
             System.out.printf("Are you a member with %s? Yes or No: ", library.getName());
@@ -27,8 +39,11 @@ public class App {
             }
 
         } while(!answer.equals("yes") && !answer.equals("no"));
-
-        System.out.println(isMember);
         scanner.close();
+
+        return  isMember;
     }
+
+
+
 }
