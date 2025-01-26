@@ -8,6 +8,10 @@ public class Member {
     int memberId; 
     Random rnd = new Random();
 
+    // String url = "jdbc:mysql://localhost:3306/mydatabase"; // change to your MySQL DB info
+    // String user = "root";  // replace with your MySQL username
+    // String password = "password";  // replace with your MySQL password
+
     Member(String firstname, String lastname, String dobString, String email){
         this.firstname = firstname;
         this.lastname = lastname;

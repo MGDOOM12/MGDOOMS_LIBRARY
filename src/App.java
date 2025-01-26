@@ -11,6 +11,7 @@ public class App {
         // System.out.println(library);
         boolean isMember = false;
         String answer = "";
+        Member member;
 
         isMember = checkIsMember( library, answer, isMember);
 
@@ -18,6 +19,7 @@ public class App {
 
         if(!isMember){
             // Create a method to create a user;
+            
         }else{
             // Create a method to find a user;
         }
@@ -66,8 +68,16 @@ public class App {
             if(answer.equals("yes")){
                 System.out.printf("Great! We are excited for you to join %s \n.", library.getName());
                 System.out.println("We have a few questions we will need you to answer to create you an account");
-                System.out.println("What is your first name?");
-
+                System.out.print("What is your first name?: ");
+                firstName = scanner.nextLine();
+                System.out.print("What is your last name?: ");
+                lastName = scanner.nextLine();
+                System.out.print("What is you date of birth?: ");
+                dobString = scanner.nextLine();
+                System.out.print("What is your email?: ");
+                email = scanner.nextLine();
+            }else{
+                System.out.println("Sorry you don't want to join. Have a great day!");
             }
 
         }while(!answer.equals("yes") && !answer.equals("no"));
