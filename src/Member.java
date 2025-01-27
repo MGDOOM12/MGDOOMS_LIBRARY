@@ -20,4 +20,9 @@ public class Member {
         this.memberId = 10000000 + rnd.nextInt(899999999); 
     }
 
+    @Override
+    public String toString(){
+        return this.firstname + " " + this.lastname + " " + this.dobString + " " + this.email + " " + this.memberId;
+    }
+
 }
