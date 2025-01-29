@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId> <!-- Replace with your group ID -->
+    <artifactId>MGDOOMS-LIBRARY-project</artifactId> <!-- Replace with your project name -->
+    <version>1.0-SNAPSHOT</version> <!-- Set the version -->
+    <packaging>jar</packaging> <!-- Default is 'jar' for a Java application -->
+
+    <dependencies>
+        <!-- Example dependency for MySQL JDBC driver -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.1.0</version>
+        </dependency>
+        <!-- Add more dependencies as required -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- You can define Maven build plugins here if necessary -->
+        </plugins>
+    </build>
+</project>

@@ -1,9 +1,36 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
 public class App {
+
+    static final String DB_URL = "";
+    static final String user = "";
+    static final String password = "";
+
+
+
     public static void main(String[] args) throws Exception {
+        // try(Connection conn = DriverManager.getConnection(DB_URL, user, password);
+        //     Statement stmt = conn.createStatement();
+        // ){
+        //     String sql = "CREATE DATABASE MEMBERS IF NOT EXISTS MEMBERS";
+        //     stmt.executeUpdate(sql);
+        //     System.out.print("Database created successfully...");
+        // } catch(SQLException e){
+        //     e.printStackTrace();
+        // }
+        try (Connection connection = DriverManager.getConnection(DB_URL, user, password)) {
+            System.out.println("Database connected!");
+        } catch (SQLException e) {
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }
+
+
         Scanner scanner = new Scanner(System.in);
+
         // Library object that we do not want any changes being made.
         Library library = new Library("MGDOOM'S LIBRARY", "MGDOOM", 2025, false);
         Member member = new Member("", "", "", "");
