@@ -1,3 +1,4 @@
+package com.mycompany.app;
 public class Library {
     private String name;
     private String librarian;

@@ -4,6 +4,13 @@
       "type": "java",
       "name": "App",
       "request": "launch",
+      "mainClass": "com.mycompany.app.App",
+      "projectName": "MGDOOMS-LIBRARY-project"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
       "mainClass": "App",
       "projectName": "MGDOOMS_LIBRARY_b9b39d34"
     },
