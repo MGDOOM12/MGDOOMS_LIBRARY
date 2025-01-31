@@ -1,11 +1,5 @@
 package com.mycompany.app;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
-
-import io.github.cdimascio.dotenv.Dotenv;
 
 
 
@@ -15,24 +9,6 @@ public class App {
 
 
     public static void main(String[] args) throws Exception {
-        Dotenv dotenv = Dotenv.load();
-
-    
-        String DB_URL = dotenv.get("DB_URL");
-        String user = dotenv.get("DB_USER");
-        String password = dotenv.get("DB_USER_PASSWORD");
-
-
-        try(Connection conn = DriverManager.getConnection(DB_URL, user, password);
-            Statement stmt = conn.createStatement();
-        ){
-            String sql = "CREATE DATABASE IF NOT EXISTS MEMBERS;";
-            stmt.executeUpdate(sql);
-            System.out.print("Database created successfully...");
-        } catch(SQLException e){
-            e.printStackTrace();
-        }
-
         Scanner scanner = new Scanner(System.in);
 
         // Library object that we do not want any changes being made.
@@ -62,8 +38,6 @@ public class App {
 
 
     public static boolean checkIsMember(Library library, String answer, boolean isMember, Scanner scanner){
-
-
         do {
             System.out.println("Welcome to " + library.getName() + " my name is " + library.getLibrarian() + ".");
             System.out.printf("Are you a member with %s? Yes or No: ", library.getName());
@@ -77,10 +51,7 @@ public class App {
             }else{
                 System.out.println("Please answer with yes or no. ");
             }
-
         } while(!answer.equals("yes") && !answer.equals("no"));
-    
-
         return  isMember;
     }
 
@@ -115,6 +86,9 @@ public class App {
         }while(!answer.equals("yes") && !answer.equals("no"));
 
         Member newMember = new Member(firstName, lastName, dobString, email);
+        newMember.addUser();
+
+        // Create an if/else statement to handle errors if member creation fails
         return newMember;
     }
 
