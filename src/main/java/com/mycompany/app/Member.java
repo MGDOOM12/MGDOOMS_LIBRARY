@@ -15,12 +15,13 @@ public class Member {
     int memberId; 
     Random rnd = new Random();
 
-    Member(String firstname, String lastname, String dobString, String email){
+    Member(String firstname, String lastname, String dobString, String email, int memberId){
         this.firstname = firstname;
         this.lastname = lastname;
         this.dobString = dobString;
         this.email = email;
-        this.memberId = 10000000 + rnd.nextInt(899999999); 
+        // this.memberId = 10000000 + rnd.nextInt(89999999); 
+        this.memberId = memberId;
     }
 
     @Override
@@ -59,6 +60,6 @@ public class Member {
         
     }
 
-    
-
 }
+
+
