@@ -20,7 +20,6 @@ public class Member {
         this.lastname = lastname;
         this.dobString = dobString;
         this.email = email;
-        // this.memberId = 10000000 + rnd.nextInt(89999999); 
         this.memberId = memberId;
     }
 
