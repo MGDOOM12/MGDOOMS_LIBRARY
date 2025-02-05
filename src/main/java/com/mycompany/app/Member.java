@@ -13,19 +13,21 @@ public class Member {
     String dobString;
     String email;
     int memberId; 
+    private boolean isMember;
     Random rnd = new Random();
 
-    Member(String firstname, String lastname, String dobString, String email, int memberId){
+    public Member(String firstname, String lastname, String dobString, String email, int memberId, boolean isMember){
         this.firstname = firstname;
         this.lastname = lastname;
         this.dobString = dobString;
         this.email = email;
         this.memberId = memberId;
+        this.isMember = isMember;
     }
 
     @Override
     public String toString(){
-        return this.firstname + " " + this.lastname + " " + this.dobString + " " + this.email + " " + this.memberId;
+        return this.firstname + " " + this.lastname + " " + this.dobString + " " + this.email + " " + this.memberId + " " + this.isMember ;
     }
 
     public void addUser(){
@@ -34,8 +36,8 @@ public class Member {
         String DB_URL = dotenv.get("DB_URL");
         String user = dotenv.get("DB_USER");
         String password = dotenv.get("DB_USER_PASSWORD");
-
-        String sql = "INSERT INTO MEMBER_TABLE (first_name, last_name, email, dob, member_id) VALUES (?, ?, ?, ?, ?);";
+        this.isMember = true;
+        String sql = "INSERT INTO MEMBER_TABLE (first_name, last_name, email, dob, member_id, is_member) VALUES (?, ?, ?, ?, ?, ?);";
 
         try(Connection conn = DriverManager.getConnection(DB_URL, user, password);
             PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -46,6 +48,7 @@ public class Member {
                 stmt.setString(3, this.email);
                 stmt.setString(4, this.dobString);
                 stmt.setInt(5, this.memberId);
+                stmt.setBoolean(5, this.isMember);
 
                 int rowsInserted = stmt.executeUpdate();
                 if(rowsInserted > 0){
@@ -55,9 +58,12 @@ public class Member {
         } catch(SQLException e){
             e.printStackTrace();
         }
-
-        
     }
+
+    public boolean getIsMember(){
+        return isMember;
+    }
+
 
 }
 

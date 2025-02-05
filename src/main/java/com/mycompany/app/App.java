@@ -21,7 +21,7 @@ public class App {
 
         // Library object that we do not want any changes being made.
         Library library = new Library("MGDOOM'S LIBRARY", "MGDOOM", 2025, false);
-        Member member = new Member("", "", "", "", 0);
+        Member member = new Member("", "", "", "", 0,false);
         // System.out.println(library);
         boolean isMember = false;
         String answer = "";
@@ -75,6 +75,7 @@ public class App {
         String dobString="";
         String email="";
         int memberID = 10000000 + rnd.nextInt(89999999);
+        boolean isMember = false;
 
         do{
             System.out.print("It look like you are not a member. Would you like to join: Yes or No: ");
@@ -97,7 +98,7 @@ public class App {
 
         }while(!answer.equals("yes") && !answer.equals("no"));
 
-        Member newMember = new Member(firstName, lastName, dobString, email, memberID);
+        Member newMember = new Member(firstName, lastName, dobString, email, memberID,isMember);
         newMember.addUser();
         
         System.out.print("Your new member ID is: " + memberID);
@@ -119,6 +120,7 @@ public class App {
         String foundEmail= "";
         int foundMemberId = 0;
         String foundDob= "";
+        boolean foundIsMember = false;
 
         System.out.print("Great! We just need your Member number to search you: ");
         foundMemberId = scanner.nextInt();
@@ -133,12 +135,13 @@ public class App {
                 foundLastName = rs.getString("last_name");
                 foundEmail = rs.getString("first_name");
                 foundDob = rs.getString("dob");
+                foundIsMember =rs.getBoolean("is_member");
             }
         } catch(SQLException e){
         e.printStackTrace();
         }
 
-        Member foundMember = new Member(foundFirstName,foundLastName,foundEmail,foundDob,foundMemberId);
+        Member foundMember = new Member(foundFirstName,foundLastName,foundEmail,foundDob,foundMemberId,foundIsMember);
         return foundMember;
     }
 
