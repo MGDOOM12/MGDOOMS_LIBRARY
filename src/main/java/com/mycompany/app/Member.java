@@ -30,6 +30,13 @@ public class Member {
         return this.firstname + " " + this.lastname + " " + this.dobString + " " + this.email + " " + this.memberId + " " + this.isMember ;
     }
 
+    /*
+     * Add User method creates a brand new user based on the input from scanner input
+     * It takes the user input and adds the new user to the databases
+     * Future:
+     * We need create some validation around the data that is being passed to the db
+     */
+
     public void addUser(){
         Dotenv dotenv = Dotenv.load();
 
@@ -48,7 +55,7 @@ public class Member {
                 stmt.setString(3, this.email);
                 stmt.setString(4, this.dobString);
                 stmt.setInt(5, this.memberId);
-                stmt.setBoolean(5, this.isMember);
+                stmt.setBoolean(6, this.isMember);
 
                 int rowsInserted = stmt.executeUpdate();
                 if(rowsInserted > 0){
@@ -60,6 +67,12 @@ public class Member {
         }
     }
 
+    /*
+     * Create a method that checks out a book
+     */
+
+
+    // A method that can read if a user is a member or not
     public boolean getIsMember(){
         return isMember;
     }
